@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('module_logs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('module_id')->constrained()->onDelete('cascade');  // References modules table
+            $table->string('status');
             $table->timestamp('timestamp');  // Time of status change,  as data can be sent at different timestamp
             $table->timestamps();
         });
