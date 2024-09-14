@@ -16,6 +16,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');  // Module name (can be a reference..)
             $table->foreignId('module_type_id')->constrained()->onDelete('cascade');
+            $table->integer('operation_duration')->default(0);
+            $table->integer('data_sent_count')->default(0);
             $table->string('status')->default(ModuleStatus::ACTIVE);
             $table->timestamps();
         });

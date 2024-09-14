@@ -11,11 +11,11 @@ class Module extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'module_type_id', 'status'];
+    protected $fillable = ['name', 'module_type_id', 'status', 'operation_duration', 'data_sent_count'];
 
     public function type(): BelongsTo
     {
-        return $this->belongsTo(ModuleType::class);
+        return $this->belongsTo(ModuleType::class, 'module_type_id', 'id');
     }
 
     public function data(): HasMany
