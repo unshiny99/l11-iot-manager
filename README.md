@@ -15,10 +15,11 @@
 7. Launch the task scheduler for the module data simulation : `php artisan schedule:work`
 
 ### Choices made
-* We assume the sensors send different data structure when it is a valid data (eg temperature, speed...) and when it's a malfunction (sended on event trigger for example, so not periodically).
+* We assume the sensors send different data structure when it is a valid data (eg temperature, speed...) and when it's a malfunction.
 This way, the data : 
-    * will still be accessed periodically when the module is active
-    * will not be accessed once the status is different then active until it changes
+    * Will still be accessed periodically when the module is active
+    * Will not be accessed once the status is different then active until it changes
+* The unit are direclty defined on the module type, so a module can have only one metric here (we assume a module is a "sensor").
 * Chart.js has been used for the graphical view of the modules' data
 
 ### Credits
