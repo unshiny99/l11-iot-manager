@@ -1,5 +1,10 @@
 ## Laravel 11 IoT Manager
 
+### Requirements
+1. PHP 8
+2. Composer
+3. PostgresSQL
+
 ### Setup
 1. First of all, you need to create a PostgreSQL database named `iot-manager`
 2. Run `composer install`
