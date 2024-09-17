@@ -14,9 +14,9 @@ class ModuleTypesTableSeeder extends Seeder
     public function run(): void
     {
         ModuleType::insert([
-            ['name' => 'Capteur de température', 'brand' => 'TiTEC', 'model' => 'RTF3/MUA'],
-            ['name' => 'Capteur de vitesse', 'brand' => 'iGPSPORT', 'model' => 'SPD70'],
-            ['name' => 'Capteur de distance', 'brand' => 'LFM', 'model' => 'O5DLCPKG/US'],
+            ['name' => 'Capteur de température', 'brand' => 'TiTEC', 'model' => 'RTF3/MUA', 'unit' => '°C'],
+            ['name' => 'Capteur de vitesse', 'brand' => 'iGPSPORT', 'model' => 'SPD70', 'unit' => 'm/s'],
+            ['name' => 'Capteur de distance', 'brand' => 'LFM', 'model' => 'O5DLCPKG/US', 'unit' => 'm'],
         ]);
     }
 }

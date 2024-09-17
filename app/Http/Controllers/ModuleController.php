@@ -4,8 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Enums\ModuleStatus;
 use App\Models\Module;
+use App\Models\ModuleData;
+use App\Models\ModuleLog;
 use App\Models\ModuleType;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
+use Illuminate\View\View;
 
 class ModuleController extends Controller
 {
@@ -43,14 +48,21 @@ class ModuleController extends Controller
     }
 
     // Show a specific module
-    public function show($id)
+    public function show(int $id): View
     {
         $module = Module::findOrFail($id);
-        return view('modules.show', compact('module'));
+        $moduleData = ModuleData::where('module_id', $id)->orderBy('created_at', 'asc')->get();
+        $moduleLogs = ModuleLog::where('module_id', $id)->orderBy('created_at', 'asc')->get();
+
+        return view('modules.show', [
+            'module'     => $module, 
+            'moduleData' => $moduleData,
+            'moduleLogs' => $moduleLogs
+        ]);
     }
 
     // Update module status (example)
-    public function updateStatus(Request $request, $id)
+    public function updateStatus(Request $request, int $id)
     {
         $module = Module::findOrFail($id);
         $module->status = $request->input('status', ModuleStatus::ACTIVE);
@@ -60,7 +72,7 @@ class ModuleController extends Controller
     }
 
     // Delete a module (example)
-    public function destroy($id)
+    public function destroy(int $id): RedirectResponse
     {
         $module = Module::findOrFail($id);
         $module->delete();

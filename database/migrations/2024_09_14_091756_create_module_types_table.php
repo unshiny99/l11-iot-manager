@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');  // e.g. Temperature Sensor, Speed Sensor
             $table->string('brand')->nullable(); 
             $table->string('model')->nullable(); 
+            $table->string('unit')->nullable();
             $table->timestamps();
         });
     }

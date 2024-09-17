@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('module_id')->constrained()->onDelete('cascade');
             $table->float('measured_value');  // e.g., temperature, speed value
-            $table->string('unit');  // Unit of measurement (e.g., °C, m...)
             $table->timestamp('timestamp');  // Time of measurement, as data can be sent at different timestamp
             $table->timestamps();
         });
