@@ -3,7 +3,7 @@
 ### Requirements
 1. PHP 8
 2. Composer
-3. PostgresSQL
+3. MySQL
 
 ### Setup
 1. First of all, you need to create a PostgreSQL database named `iot-manager`
